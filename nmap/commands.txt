@@ -1,0 +1,2 @@
+nmap -oG - 192.168.1.0-255 -p 22 -vv ===> scan every ssh port for every ip address in my current network;
+nmap --open www.google.com ===> scan only open ports ( FAST )

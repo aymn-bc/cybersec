@@ -1,0 +1,5 @@
+-p: Ports;
+-F: scan most commomly scanned ports
+-sV: Service Version (example: Ubuntu 24.04);
+-oG: Grappable output; 
+-vv: more information about the scan
