@@ -12,7 +12,7 @@ headers = {
     "Referer": "https://0a02002003b095f180300804001a00e7.web-security-academy.net/"
 }
 
-carac_list=[chr(x) for x in range(97,122)]
+carac_list=[chr(x) for x in range(97,123)]
 carac_list+=[str(i) for i in range(0,10)]
 cracked_password=""
 for j in range(1, 21):
