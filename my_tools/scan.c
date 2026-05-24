@@ -104,6 +104,7 @@ int main() {
             curl_slist_free_all(headers);
         }
     }
+    printf("PASSWORD CRACKED: ");
     for (int i = 0; i < 20; i++){
         printf("%c", result[i]);
     }
