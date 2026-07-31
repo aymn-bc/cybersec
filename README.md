@@ -37,7 +37,7 @@ This repository contains:
 **Critical vulnerability chain combining deserialization attacks with privilege escalation**
 
 - **Platform:** TryHackMe
-- **Difficulty:** Medium/Hard
+- **Difficulty:** Medium
 - **CVSS Score:** 9.8 (Critical)
 - **Topics:** Unsafe deserialization, code execution, reverse shells, sudo exploitation
 
@@ -48,6 +48,24 @@ This repository contains:
 - Complete system compromise (user → root)
 
 [📖 Full Technical Writeup](./tryhackme/CTFs/Jax_sucks_alot/README.md)
+
+### [Exposed .git directory - "Room 404"](./tryhackme/CTFs/room_404/)
+
+**Critical vulnerability chain combining deserialization attacks with privilege escalation**
+
+- **Platform:** TryHackMe
+- **Difficulty:** Ease
+- **Topics:** Web enumeration, directory fuzzing, exposed .git, Git object analysis, source code recovery
+
+**Key Findings:**
+- Only HTTP service exposed on port 8080
+- Hidden .git/ directory discovered through content enumeration
+- Public access to Git metadata (HEAD, index, refs, objects)
+- Repository reconstructed by inspecting Git objects and commit tree
+- Application source code recovered directly from the exposed repository
+- JavaScript analysis identified a placeholder API endpoint (/api/guest) with no implementation
+
+[📖 Full Technical Writeup](./tryhackme/CTFs/room_404/README.md)
 
 ---
 
