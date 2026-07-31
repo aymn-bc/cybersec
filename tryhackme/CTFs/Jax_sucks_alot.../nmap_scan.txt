@@ -1,0 +1,58 @@
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-07-15 18:05 +0100
+Nmap scan report for 10.113.169.252
+Host is up (0.077s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port80-TCP:V=7.99%I=7%D=7/15%Time=6A57BDC8%P=x86_64-pc-linux-gnu%r(GetR
+SF:equest,E4B,"HTTP/1\.1\x20200\x20OK\r\nContent-Type:\x20text/html\r\nDat
+SF:e:\x20Wed,\x2015\x20Jul\x202026\x2017:05:12\x20GMT\r\nConnection:\x20cl
+SF:ose\r\n\r\n<html><head>\n<title>Horror\x20LLC</title>\n<style>\n\x20\x2
+SF:0body\x20{\n\x20\x20\x20\x20background:\x20linear-gradient\(253deg,\x20
+SF:#4a040d,\x20#3b0b54,\x20#3a343b\);\n\x20\x20\x20\x20background-size:\x2
+SF:0300%\x20300%;\n\x20\x20\x20\x20-webkit-animation:\x20Background\x2010s
+SF:\x20ease\x20infinite;\n\x20\x20\x20\x20-moz-animation:\x20Background\x2
+SF:010s\x20ease\x20infinite;\n\x20\x20\x20\x20animation:\x20Background\x20
+SF:10s\x20ease\x20infinite;\n\x20\x20}\n\x20\x20\n\x20\x20@-webkit-keyfram
+SF:es\x20Background\x20{\n\x20\x20\x20\x200%\x20{\n\x20\x20\x20\x20\x20\x2
+SF:0background-position:\x200%\x2050%\n\x20\x20\x20\x20}\n\x20\x20\x20\x20
+SF:50%\x20{\n\x20\x20\x20\x20\x20\x20background-position:\x20100%\x2050%\n
+SF:\x20\x20\x20\x20}\n\x20\x20\x20\x20100%\x20{\n\x20\x20\x20\x20\x20\x20b
+SF:ackground-position:\x200%\x2050%\n\x20\x20\x20\x20}\n\x20\x20}\n\x20\x2
+SF:0\n\x20\x20@-moz-keyframes\x20Background\x20{\n\x20\x20\x20\x200%\x20{\
+SF:n\x20\x20\x20\x20\x20\x20background-position:\x200%\x2050%\n\x20\x20\x2
+SF:0\x20}\n\x20\x20\x20\x2050%\x20{\n\x20\x20\x20\x20\x20\x20background-po
+SF:sition:\x20100%\x2050%\n\x20\x20\x20\x20}\n\x20\x20\x20\x20100%\x20{\n\
+SF:x20\x20\x20\x20\x20\x20background-position:\x200%\x2050%\n\x20\x20\x20\
+SF:x20}\n\x20\x20}\n\x20\x20\n\x20\x20@keyframes\x20Background\x20{\n\x20\
+SF:x20\x20\x200%\x20{\n\x20\x20\x20\x20\x20\x20background-position:\x200%\
+SF:x2050%\n\x20\x20\x20\x20}\n\x20\x20\x20\x2050%\x20{\n\x20\x20\x20\x20\x
+SF:20\x20background-posi")%r(HTTPOptions,E4B,"HTTP/1\.1\x20200\x20OK\r\nCo
+SF:ntent-Type:\x20text/html\r\nDate:\x20Wed,\x2015\x20Jul\x202026\x2017:05
+SF::12\x20GMT\r\nConnection:\x20close\r\n\r\n<html><head>\n<title>Horror\x
+SF:20LLC</title>\n<style>\n\x20\x20body\x20{\n\x20\x20\x20\x20background:\
+SF:x20linear-gradient\(253deg,\x20#4a040d,\x20#3b0b54,\x20#3a343b\);\n\x20
+SF:\x20\x20\x20background-size:\x20300%\x20300%;\n\x20\x20\x20\x20-webkit-
+SF:animation:\x20Background\x2010s\x20ease\x20infinite;\n\x20\x20\x20\x20-
+SF:moz-animation:\x20Background\x2010s\x20ease\x20infinite;\n\x20\x20\x20\
+SF:x20animation:\x20Background\x2010s\x20ease\x20infinite;\n\x20\x20}\n\x2
+SF:0\x20\n\x20\x20@-webkit-keyframes\x20Background\x20{\n\x20\x20\x20\x200
+SF:%\x20{\n\x20\x20\x20\x20\x20\x20background-position:\x200%\x2050%\n\x20
+SF:\x20\x20\x20}\n\x20\x20\x20\x2050%\x20{\n\x20\x20\x20\x20\x20\x20backgr
+SF:ound-position:\x20100%\x2050%\n\x20\x20\x20\x20}\n\x20\x20\x20\x20100%\
+SF:x20{\n\x20\x20\x20\x20\x20\x20background-position:\x200%\x2050%\n\x20\x
+SF:20\x20\x20}\n\x20\x20}\n\x20\x20\n\x20\x20@-moz-keyframes\x20Background
+SF:\x20{\n\x20\x20\x20\x200%\x20{\n\x20\x20\x20\x20\x20\x20background-posi
+SF:tion:\x200%\x2050%\n\x20\x20\x20\x20}\n\x20\x20\x20\x2050%\x20{\n\x20\x
+SF:20\x20\x20\x20\x20background-position:\x20100%\x2050%\n\x20\x20\x20\x20
+SF:}\n\x20\x20\x20\x20100%\x20{\n\x20\x20\x20\x20\x20\x20background-positi
+SF:on:\x200%\x2050%\n\x20\x20\x20\x20}\n\x20\x20}\n\x20\x20\n\x20\x20@keyf
+SF:rames\x20Background\x20{\n\x20\x20\x20\x200%\x20{\n\x20\x20\x20\x20\x20
+SF:\x20background-position:\x200%\x2050%\n\x20\x20\x20\x20}\n\x20\x20\x20\
+SF:x2050%\x20{\n\x20\x20\x20\x20\x20\x20background-posi");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 21.18 seconds

@@ -1,0 +1,13 @@
+nmap -sV -sC -O -p- -n -Pn -oA fullscan 10.113.187.118
+
+so i can find 404 size: ffuf -u https://10.113.187.122/ -w ~/pentest-wordlists/SecLists-master/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.futurevera.thm' 
+
+ffuf -u https://10.113.187.122/ -w ~/pentest-wordlists/SecLists-master/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.futurevera.thm' -fs 4605
+
+after adding support.futurevera.thm to /etc/host i opened it in firefox then checked the certificate and i found:
+
+secrethelpdesk934752.support.futurevera.thm 
+which is secret DNS name
+
+after searching the website in firefox it redirect me to the flag
+flag{beea0d6edfcee06a59b83fb50ae81b2f}

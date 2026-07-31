@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Wed Jul 15 16:24:49 2026 as: nmap -sV -sC -O -p- -n -Pn -oA fullscan 10.113.187.118
+Host: 10.113.187.118 ()	Status: Up
+Host: 10.113.187.118 ()	Ports: 22/open/tcp//ssh//OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.41 ((Ubuntu))/, 443/open/tcp//ssl|http//Apache httpd 2.4.41 ((Ubuntu))/	Ignored State: closed (65532)	Seq Index: 259	IP ID Seq: All zeros
+# Nmap done at Wed Jul 15 16:26:20 2026 -- 1 IP address (1 host up) scanned in 91.02 seconds

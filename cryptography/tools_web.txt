@@ -1,0 +1,14 @@
+incrypt / decrypt:
+
+https://www.101computing.net/frequency-analysis/
+https://www.dcode.fr/vigenere-cipher
+https://www.dcode.fr/base-64-encoding
+
+https://gchq.github.io/CyberChef/
+
+analyse / identify encryption: 
+https://www.dcode.fr/cipher-identifier
+
+attack:
+common modulus attack
+frequency attack

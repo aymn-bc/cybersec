@@ -1,0 +1,9 @@
+i already know the 4 character which are THM{ and the last character which }
+i xored the T xor value with 0x3d...
+
+[Aymen@archlinux tryhackme]$ ncat
+Ncat: You must specify a host to connect to. QUITTING.
+[Aymen@archlinux tryhackme]$ ncat 10.114.141.196 1337
+This XOR encoded text has flag 1: 3d0c142d19582535381d2c3c2d171d1d703a3d0a282a2b65080508203e3c1b3020661c1b3c162414
+What is the encryption key? iDYVi
+Congrats! That is the correct key! Here is flag 2: THM{BrUt3_ForC1nG_XOR_cAn_B3_FuN_nO?}

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Wed Jul 15 16:24:49 2026 as: nmap -sV -sC -O -p- -n -Pn -oA fullscan 10.113.187.118 -->
+<nmaprun scanner="nmap" args="nmap -sV -sC -O -p- -n -Pn -oA fullscan 10.113.187.118" start="1784129089" startstr="Wed Jul 15 16:24:49 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1784129089" endtime="1784129180"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.113.187.118" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65532">
+<extrareasons reason="reset" count="65532" proto="tcp" ports="1-21,23-79,81-442,444-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="ssh" product="OpenSSH" version="8.2p1 Ubuntu 4ubuntu0.13" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:8.2p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  3072 b8:cf:3f:0f:a1:6b:b4:17:49:5c:77:4b:6a:06:e8:89 (RSA)&#xa;  256 40:97:ab:29:a7:16:09:50:63:cb:e2:c4:09:e2:8d:f0 (ECDSA)&#xa;  256 93:d7:50:87:66:73:8a:7b:d1:1c:d7:ad:82:74:0c:27 (ED25519)"><table>
+<elem key="key">AAAAB3NzaC1yc2EAAAADAQABAAABgQDHXywtrSlXnA3EXn8d/EXWl3lrr0rtjHLlp5YfOyNQIBfhYn2Ce5+lfrkx549lSQf3ip4+AR1/sgzOPu98lengG8u+rAUmxWA7FyN76wVEQ6W3X72RgTiDbteyDW6vSBzBidJSoqsOV31syPnfjfVM3IyiIaVyvDCRrdNz0zIqQ79d/+f4L/y80vvmbw5FRUjXYyw07kR0afUBY6ZwYYJk51DFHOjR7TPFZGwxZNWfbolgWPF+LsgC6XVlKLZl8GcB6Hocar4jdXwQuu/avIJyhd7+ebWaI5iBRz272Vi0pu71UMbRlG2eaDsWJqcDPNgiDtJMN46sUTcNvC5KIM/lZlV3zO+Lrf86wCx59io23WPprwxWZO/nDBVayaBUXAdrpkCTPmMyzR+gJ0+5lcZR5wlglSAFxRTNceBgYaoxdUC9MUjGAzAci5/sH6h7xang8PL0QNHvIWtBhDHpNvpV/iNvqob4JyXwjelC6s+MTzpSDLYvmbhFOd36kIpdmn0=</elem>
+<elem key="bits">3072</elem>
+<elem key="fingerprint">b8cf3f0fa16bb417495c774b6a06e889</elem>
+<elem key="type">ssh-rsa</elem>
+</table>
+<table>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKaCpL3WJTIGiloEBMxw6Rt6vf3Zrvg90RxDYJN0w8WrjQbS1nAFz0a73DMaFj7ZM+nXUCWlFqr3S+ypP877kbE=</elem>
+<elem key="bits">256</elem>
+<elem key="fingerprint">4097ab29a716095063cbe2c409e28df0</elem>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+</table>
+<table>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIH7ytPjfOiSvS/JdJM9TnFHOV3F4dsX6qVZl1xoDSp/h</elem>
+<elem key="bits">256</elem>
+<elem key="fingerprint">93d7508766738a7bd11cd7ad82740c27</elem>
+<elem key="type">ssh-ed25519</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Apache httpd" version="2.4.41" extrainfo="(Ubuntu)" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.41</cpe></service><script id="http-server-header" output="Apache/2.4.41 (Ubuntu)"><elem>Apache/2.4.41 (Ubuntu)</elem>
+</script><script id="http-title" output="Did not follow redirect to https://futurevera.thm/"><elem key="redirect_url">https://futurevera.thm/</elem>
+</script></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Apache httpd" version="2.4.41" extrainfo="(Ubuntu)" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.41</cpe></service><script id="ssl-cert" output="Subject: commonName=futurevera.thm/organizationName=Futurevera/stateOrProvinceName=Oregon/countryName=US&#xa;Not valid before: 2022-03-13T10:05:19&#xa;Not valid after:  2023-03-13T10:05:19"><table key="subject">
+<elem key="commonName">futurevera.thm</elem>
+<elem key="countryName">US</elem>
+<elem key="localityName">Portland</elem>
+<elem key="organizationName">Futurevera</elem>
+<elem key="organizationalUnitName">Thm</elem>
+<elem key="stateOrProvinceName">Oregon</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">futurevera.thm</elem>
+<elem key="countryName">US</elem>
+<elem key="localityName">Portland</elem>
+<elem key="organizationName">Futurevera</elem>
+<elem key="organizationalUnitName">Thm</elem>
+<elem key="stateOrProvinceName">Oregon</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">A662A3D6D3F5E6CE8AF726FBDC4A282500A1B13671D5395456E2D557BBA31B1218A59611CB109549FBB458F58E32AA8560CC657C445BA68DDE3539A79CC5E804E6C08BAF350AB064E68AF222A35ECF08584048432CFF88A045E9D796ACDFBC208FB08536926DEAC568D0F61B455C841ECEACEBBF9A53F528D866DA410AC1A93B607C6F1644A9ECD9AEDB24D0027CA958AD82061DED75E192ABBFE5CA8F16DE56BF90F2A16F8966B41312FED28F16C94CC653AFD1C49B36CBC5560250EE3B6239928FA3F0C079A148141FF7D87A1CB1C41733655D40D5E7410E8CD5C6C136C9185B3BF0A7A762FB06338E3096B4CE28460FB773F93986A9047ED122C15EF10177</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">3D:B7:58:4C:25:04:C4:C3:4E:95:88:D1:E3:14:D0:83:1A:27:23:C9</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">3D:B7:58:4C:25:04:C4:C3:4E:95:88:D1:E3:14:D0:83:1A:27:23:C9</elem>
+</table>
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:TRUE</elem>
+<elem key="critical">true</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2022-03-13T10:05:19</elem>
+<elem key="notAfter">2023-03-13T10:05:19</elem>
+</table>
+<elem key="md5">2e8d60976b23188c06d5f2cd8defdd3a</elem>
+<elem key="sha1">8023fcfc5e63a29b3d5eeaaf8f708b35d8ebc120</elem>
+<elem key="sha256">bdff431703bb91a121444c8fe62a28423b727169858a1f5ff618dd3fefb0aa33</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIDuzCCAqOgAwIBAgIUMx0OgCh/xob6nWlsHR+iKDXKZRkwDQYJKoZIhvcNAQEL&#xa;BQAwbTELMAkGA1UEBhMCVVMxDzANBgNVBAgMBk9yZWdvbjERMA8GA1UEBwwIUG9y&#xa;dGxhbmQxEzARBgNVBAoMCkZ1dHVyZXZlcmExDDAKBgNVBAsMA1RobTEXMBUGA1UE&#xa;AwwOZnV0dXJldmVyYS50aG0wHhcNMjIwMzEzMTAwNTE5WhcNMjMwMzEzMTAwNTE5&#xa;WjBtMQswCQYDVQQGEwJVUzEPMA0GA1UECAwGT3JlZ29uMREwDwYDVQQHDAhQb3J0&#xa;bGFuZDETMBEGA1UECgwKRnV0dXJldmVyYTEMMAoGA1UECwwDVGhtMRcwFQYDVQQD&#xa;DA5mdXR1cmV2ZXJhLnRobTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB&#xa;AKZio9bT9ebOivcm+9xKKCUAobE2cdU5VFbi1Ve7oxsSGKWWEcsQlUn7tFj1jjKq&#xa;hWDMZXxEW6aN3jU5p5zF6ATmwIuvNQqwZOaK8iKjXs8IWEBIQyz/iKBF6deWrN+8&#xa;II+whTaSberFaND2G0VchB7OrOu/mlP1KNhm2kEKwak7YHxvFkSp7Nmu2yTQAnyp&#xa;WK2CBh3tdeGSq7/lyo8W3la/kPKhb4lmtBMS/tKPFslMxlOv0cSbNsvFVgJQ7jti&#xa;OZKPo/DAeaFIFB/32HocscQXM2VdQNXnQQ6M1cbBNskYWzvwp6di+wYzjjCWtM4o&#xa;Rg+3c/k5hqkEftEiwV7xAXcCAwEAAaNTMFEwHQYDVR0OBBYEFD23WEwlBMTDTpWI&#xa;0eMU0IMaJyPJMB8GA1UdIwQYMBaAFD23WEwlBMTDTpWI0eMU0IMaJyPJMA8GA1Ud&#xa;EwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBACu3W2VV8zRdD4M7oUWN8S6f&#xa;lM1z8aCkSckgFDEX7jtyJjWMQVwPizKkX17XQs6EgnWqD/PVt2Tf9dRhUH6FQmTK&#xa;qh35hnsSOdO3sQB8CnQ3SnlbeUYXY2mY/aUhz/lAkx6mURGuSen8BSbuL4mcm5Dk&#xa;AXxfa+SHc5XAjuYSlXVUSPy8noqFOLxvcGz+zPN2RQYwQkMDgQtUX2n0VcjwgTLN&#xa;bEuEm210+IGPX+ZEQWsnSSmz0SyUryBwc5BsjMaFUdAncxEBKCn1p4oN8gm6NQ32&#xa;FHFbghTgLgMTahuLWpXdeuVF87+pHUlroRHdgblQtb2wSwqVaDGHaLFiZcUMv/Y=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="tls-alpn" output="&#xa;  http/1.1"><elem>http/1.1</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="http-server-header" output="Apache/2.4.41 (Ubuntu)"><elem>Apache/2.4.41 (Ubuntu)</elem>
+</script><script id="http-title" output="FutureVera"><elem key="title">FutureVera</elem>
+</script></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<portused state="closed" proto="tcp" portid="1"/>
+<portused state="closed" proto="udp" portid="42211"/>
+<osmatch name="Linux 5.14 - 6.8" accuracy="96" line="72603">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="96"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="6.X" accuracy="96"><cpe>cpe:/o:linux:linux_kernel:6</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 4.15 - 5.19" accuracy="96" line="71007">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="96"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="96"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 5.4 - 5.15" accuracy="96" line="72933">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="96"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 4.15" accuracy="95" line="70878">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="95"><cpe>cpe:/o:linux:linux_kernel:4.15</cpe></osclass>
+</osmatch>
+<osmatch name="Android 10 - 12 (Linux 4.14 - 4.19)" accuracy="93" line="72082">
+<osclass type="phone" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="93"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="10.X" accuracy="93"><cpe>cpe:/o:google:android:10</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="11.X" accuracy="93"><cpe>cpe:/o:google:android:11</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="12.X" accuracy="93"><cpe>cpe:/o:google:android:12</cpe></osclass>
+</osmatch>
+<osmatch name="Android 10 - 11 (Linux 4.9 - 4.14)" accuracy="92" line="33087">
+<osclass type="general purpose" vendor="Google" osfamily="Android" osgen="10.X" accuracy="92"><cpe>cpe:/o:google:android:10</cpe></osclass>
+<osclass type="general purpose" vendor="Google" osfamily="Android" osgen="11.X" accuracy="92"><cpe>cpe:/o:google:android:11</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="92"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+</osmatch>
+<osmatch name="Android 12 (Linux 5.4)" accuracy="92" line="33210">
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="12.X" accuracy="92"><cpe>cpe:/o:google:android:12</cpe></osclass>
+<osclass type="phone" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="92"><cpe>cpe:/o:linux:linux_kernel:5.4</cpe></osclass>
+</osmatch>
+<osmatch name="Android 9 - 11 (Linux 4.9 - 4.14)" accuracy="92" line="34699">
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="9.X" accuracy="92"><cpe>cpe:/o:google:android:9</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="10.X" accuracy="92"><cpe>cpe:/o:google:android:10</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="11.X" accuracy="92"><cpe>cpe:/o:google:android:11</cpe></osclass>
+<osclass type="phone" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="92"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.6.32" accuracy="92" line="59132">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="92"><cpe>cpe:/o:linux:linux_kernel:2.6.32</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.6.39 - 3.2" accuracy="92" line="62026">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="92"><cpe>cpe:/o:linux:linux_kernel:2.6</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="92"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+</osmatch>
+<osfingerprint fingerprint="OS:SCAN(V=7.99%E=4%D=7/15%OT=22%CT=1%CU=42211%PV=Y%DS=3%DC=I%G=Y%TM=6A57A69&#xa;OS:C%P=x86_64-pc-linux-gnu)SEQ(SP=101%GCD=1%ISR=10D%TI=Z%CI=Z%II=I%TS=A)SEQ&#xa;OS:(SP=103%GCD=1%ISR=10C%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=104%GCD=1%ISR=108%TI=Z%&#xa;OS:CI=Z%II=RI%TS=A)SEQ(SP=107%GCD=1%ISR=10C%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=FE%G&#xa;OS:CD=1%ISR=108%TI=Z%CI=Z%II=I%TS=A)OPS(O1=M4E8ST11NW7%O2=M4E8ST11NW7%O3=M4&#xa;OS:E8NNT11NW7%O4=M4E8ST11NW7%O5=M4E8ST11NW7%O6=M4E8ST11)WIN(W1=F4B3%W2=F4B3&#xa;OS:%W3=F4B3%W4=F4B3%W5=F4B3%W6=F4B3)ECN(R=Y%DF=Y%T=40%W=F507%O=M4E8NNSNW7%C&#xa;OS:C=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%&#xa;OS:T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD&#xa;OS:=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S&#xa;OS:=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK&#xa;OS:=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)&#xa;"/>
+</os>
+<uptime seconds="649521" lastboot="Wed Jul  8 04:00:59 2026"/>
+<distance value="3"/>
+<tcpsequence index="259" difficulty="Good luck!" values="F59E2B14,A26C40E2,E2A7E241,47FD2618,36A126A5,E0C8464E"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="26B6D35D,26B6D3C1,26B6D425,26B6D48A,26B6D4EE,26B6D553"/>
+<times srtt="50083" rttvar="512" to="100000"/>
+</host>
+<runstats><finished time="1784129180" timestr="Wed Jul 15 16:26:20 2026" summary="Nmap done at Wed Jul 15 16:26:20 2026; 1 IP address (1 host up) scanned in 91.02 seconds" elapsed="91.02" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

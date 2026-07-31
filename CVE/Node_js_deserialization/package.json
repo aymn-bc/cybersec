@@ -1,0 +1,15 @@
+{
+  "name": "node_js_deserialization",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "log.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-serialize": "^0.0.4"
+  }
+}

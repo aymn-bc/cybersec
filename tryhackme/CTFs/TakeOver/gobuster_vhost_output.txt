@@ -1,0 +1,16 @@
+===============================================================
+Gobuster v3.8.2
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                       http://futurevera.thm
+[+] Method:                    GET
+[+] Threads:                   10
+[+] Wordlist:                  /home/Aymen/pentest-wordlists/SecLists-master/Discovery/DNS/subdomains-top1million-20000.txt
+[+] User Agent:                gobuster/3.8.2
+[+] Timeout:                   10s
+[+] Append Domain:             true
+[+] Exclude Hostname Length:   false
+===============================================================
+Starting gobuster in VHOST enumeration mode
+===============================================================
+portal.futurevera.thm Status: 200 [Size: 69]
