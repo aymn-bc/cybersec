@@ -273,9 +273,9 @@ This is a personal learning portfolio. Feedback and suggestions are welcome!
 
 ## 📞 Contact
 
-- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/aymen-bc)
+- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/aymen-ibn-cheikh-belkacem)
 - **GitHub:** [@aymn-bc](https://github.com/aymn-bc)
-- **Email:** [your.email@example.com]
+- **Email:** [aymenbencheikh789@gmail.com]
 
 ---
 
