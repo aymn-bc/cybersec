@@ -1,0 +1,7 @@
+after nmap scan 
+i tried to intercept any POST method using portswigger but i didnt get anything so i concluded that there isnt a backend included in this CTF
+so i passed a test username and test password to get the error message
+next i searched the message in the HTML code 
+and i found: username: h3ck3rBoi
+             password: RevereString("54321@terceSrepuS") so i reversed it and got SuperSecret@12345
+and thats it i got the flag
