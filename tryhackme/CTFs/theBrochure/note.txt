@@ -1,0 +1,7 @@
+- social media is instagram (from the photo)
+- account is thebytelotusresort ( found using google dorking )
+site:www.instagram.com byte lotus resorts
+
+- check following => the flag is in the veratheconcierge account
+- decode base64
+- echo "VEhNe1YzckBzX2FDQzB1bnRfaDRzX2IzM25fZjB1bmQhfQ==" | base64 -d

@@ -1,0 +1,6 @@
+- search apps that are: free + upload profiles and links in social media + start with G
+its Gravatar
+- search any random user it will tell you to search a user using email
+- put in the email of lambo
+- encoded flag (base64) identified using cipher identifier 
+DONE

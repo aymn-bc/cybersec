@@ -1,0 +1,12 @@
+- 3malt dora fel captures 
+- filter by http 
+- follow TCP stream 1 req (http)
+- found source code 
+- saved in app.py
+- analyzed code 
+- found out that it return one character encoded in every http res cookie
+- tshark -r traffic.pcapng   -Y 'http.host == "byte-lotus-hotel.thm:8080" && http.cookie'   -T fields   -e http.cookie > cookies.txt
+- cookies saved 
+- time for decoding 
+- i wrote decode.py to decode every char by itself
+DONE
