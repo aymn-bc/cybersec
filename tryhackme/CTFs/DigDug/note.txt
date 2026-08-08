@@ -1,0 +1,16 @@
+after an nmap scan, i searched about the dns vulnerability related to dig + the vulnerability when it only respond from some domains 
+and i found AXFR vulnerability which is called DNS Zone Transfer Attack
+so i added IP_MACHINE to /etc/hosts and named it givemetheflag.com
+
+i did another scan on dns only and i found that udp is open:
+nmap -sSU -p 53 --script dns-nsec-enum --script-args dns-nsec-enum.domains=givemetheflag.com 10.112.175.196
+
+so i tried to dig using AXFR: dig AXFR @10.112.175.196 givemetheflag.com +notcp
+but it didnt work the server is not reachable
+
+out of hope i ran: dnsrecon -d givemetheflag.com
+i got something: 2 ip addresses 76.223.54.146 and 13.248.169.48
+
+then i realized that all of that was a waste of time:
+dig @10.112.175.196 givemetheflag.com 
+and i got the flag

@@ -1,0 +1,23 @@
+incrypt / decrypt:
+
+https://www.101computing.net/frequency-analysis/
+https://www.dcode.fr/vigenere-cipher
+https://www.dcode.fr/base-64-encoding
+
+https://gchq.github.io/CyberChef/
+
+analyse / identify encryption: 
+https://www.dcode.fr/cipher-identifier
+
+attack:
+common modulus attack
+frequency attack
+DICTIONARY ATTACK (use john)
+
+RSA:
+Small exponent e
+Common modulus/factor attack
+Broadcast attack (common message)
+Fermat’s factorization (p and q are close)
+Weiner’s attack
+Cooperssmith’s attack

